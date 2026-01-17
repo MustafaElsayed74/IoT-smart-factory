@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SensorService } from '../services/sensor.service';
 
 @Component({
+    standalone: false,
     selector: 'app-sensor-dashboard',
     templateUrl: './sensor-dashboard.component.html',
     styleUrls: ['./sensor-dashboard.component.css']

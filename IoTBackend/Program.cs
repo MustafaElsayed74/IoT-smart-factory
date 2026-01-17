@@ -15,7 +15,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Add MQTT and SignalR
 builder.Services.AddSingleton<MQTTnet.Client.IMqttClient>(_ => new MqttFactory().CreateMqttClient());
 builder.Services.AddSingleton<MqttService>();
-builder.Services.AddSingleton<DemoDataService>();
 builder.Services.AddSignalR();
 
 // Add Controllers
@@ -52,9 +51,5 @@ app.MapHub<FactoryHub>("/hubs/factory");
 // Start MQTT service
 var mqttService = app.Services.GetRequiredService<MqttService>();
 _ = mqttService.StartAsync();
-
-// Start demo data streaming
-var demoService = app.Services.GetRequiredService<DemoDataService>();
-_ = demoService.StartDemoAsync();
 
 app.Run();

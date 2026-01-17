@@ -28,7 +28,7 @@ namespace IoTBackend.Controllers
         public ActionResult<Product> GetLatestProduct()
         {
             var latestProduct = _dbContext.Products
-                .OrderByDescending(p => p.CreatedAt)
+                .OrderByDescending(p => p.Id)
                 .FirstOrDefault();
 
             if (latestProduct == null)
